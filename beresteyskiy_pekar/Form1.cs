@@ -16,7 +16,7 @@ namespace beresteyskiy_pekar
 {
     public partial class Form1 : Form
     {
-        MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=pekar; User Id=root;password=root");
+        MySqlConnection con = new MySqlConnection(@"Data Source=localhost;port=3306;Initial Catalog=productpekar; User Id=root;password=root");
         private String ps, hps;
         public Form1()
         {
@@ -81,10 +81,12 @@ namespace beresteyskiy_pekar
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select password from user where login = @username";
+            cmd.CommandText = "select password from user where username = @username";
             cmd.Parameters.AddWithValue("@username", textBox1.Text);
             
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
             reader.Read();
 
             if (!reader.HasRows)

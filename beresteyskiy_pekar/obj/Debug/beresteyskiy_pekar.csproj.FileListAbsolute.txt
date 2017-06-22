@@ -20,3 +20,14 @@ d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\berestey
 d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.Form2.resources
 d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.Properties.Resources.resources
 d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.csproj.GenerateResource.Cache
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\bin\Debug\beresteyskiy_pekar.exe.config
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.exe
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.pdb
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\bin\Debug\beresteyskiy_pekar.exe
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\bin\Debug\beresteyskiy_pekar.pdb
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\bin\Debug\MySql.Data.dll
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.csprojResolveAssemblyReference.cache
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.Form1.resources
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.Form2.resources
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.Properties.Resources.resources
+d:\javadev\VisualStudio\beresteyskiy_pekar\beresteyskiy_pekar\beresteyskiy_pekar\obj\Debug\beresteyskiy_pekar.csproj.GenerateResource.Cache
