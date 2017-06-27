@@ -35,13 +35,13 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -55,15 +55,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.deliveryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productpekarDataSet = new beresteyskiy_pekar.productpekarDataSet();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.providerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -73,11 +83,11 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.providerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label24 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -92,35 +102,30 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.productpekarDataSet = new beresteyskiy_pekar.productpekarDataSet();
-            this.providerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.providerTableAdapter = new beresteyskiy_pekar.productpekarDataSetTableAdapters.providerTableAdapter();
-            this.providerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new beresteyskiy_pekar.productpekarDataSetTableAdapters.productsTableAdapter();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeesTableAdapter = new beresteyskiy_pekar.productpekarDataSetTableAdapters.employeesTableAdapter();
-            this.deliveryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deliveryTableAdapter = new beresteyskiy_pekar.productpekarDataSetTableAdapters.deliveryTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productpekarDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productpekarDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -160,7 +165,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -171,82 +176,83 @@
             this.tabPage1.Text = "Склад";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // groupBox6
             // 
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(669, 189);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(278, 132);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Поступление товара:";
+            this.groupBox6.Controls.Add(this.textBox11);
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.button9);
+            this.groupBox6.Controls.Add(this.textBox2);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Location = new System.Drawing.Point(669, 189);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(278, 174);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Добавление нового товара:";
             // 
-            // button5
+            // textBox11
             // 
-            this.button5.Location = new System.Drawing.Point(9, 101);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(258, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Оформить поступление";
-            this.button5.UseVisualStyleBackColor = true;
+            this.textBox11.Location = new System.Drawing.Point(123, 72);
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(144, 67);
+            this.textBox11.TabIndex = 14;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label21.Location = new System.Drawing.Point(6, 72);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(82, 17);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Описание: ";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 75);
+            this.textBox3.Location = new System.Drawing.Point(123, 45);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 14;
+            this.textBox3.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(6, 76);
+            this.label7.Location = new System.Drawing.Point(6, 46);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 17);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Количество: ";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(123, 19);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(144, 21);
-            this.comboBox3.TabIndex = 12;
+            this.label7.Size = new System.Drawing.Size(80, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Название: ";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 48);
+            this.textBox1.Location = new System.Drawing.Point(123, 79);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 10;
             // 
-            // label6
+            // button9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(6, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 17);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Код товара: ";
+            this.button9.Location = new System.Drawing.Point(9, 145);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(258, 23);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Добавить товар";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(6, 49);
+            this.label5.Location = new System.Drawing.Point(6, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Название: ";
+            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Код товара: ";
             // 
             // groupBox1
             // 
@@ -254,7 +260,7 @@
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -303,7 +309,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 79);
+            this.textBox2.Location = new System.Drawing.Point(123, 19);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(144, 20);
             this.textBox2.TabIndex = 5;
@@ -357,6 +363,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -366,6 +373,59 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Поставки";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(669, 233);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(278, 81);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Поступление товара:";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(10, 46);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(258, 23);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Оформить поступление";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.deliveryBindingSource;
+            this.comboBox3.DisplayMember = "idDelivery";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(123, 19);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(144, 21);
+            this.comboBox3.TabIndex = 12;
+            this.comboBox3.ValueMember = "idDelivery";
+            // 
+            // deliveryBindingSource
+            // 
+            this.deliveryBindingSource.DataMember = "delivery";
+            this.deliveryBindingSource.DataSource = this.productpekarDataSet;
+            // 
+            // productpekarDataSet
+            // 
+            this.productpekarDataSet.DataSetName = "productpekarDataSet";
+            this.productpekarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(6, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Код поставки: ";
             // 
             // groupBox2
             // 
@@ -384,10 +444,20 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(669, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(278, 231);
+            this.groupBox2.Size = new System.Drawing.Size(278, 221);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Оформить поставку:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(381, 444);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(0, 17);
+            this.label20.TabIndex = 21;
             // 
             // comboBox6
             // 
@@ -399,6 +469,11 @@
             this.comboBox6.Size = new System.Drawing.Size(144, 21);
             this.comboBox6.TabIndex = 20;
             this.comboBox6.ValueMember = "user_idUser";
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "employees";
+            this.employeesBindingSource.DataSource = this.productpekarDataSet;
             // 
             // label13
             // 
@@ -420,6 +495,11 @@
             this.comboBox5.Size = new System.Drawing.Size(144, 21);
             this.comboBox5.TabIndex = 18;
             this.comboBox5.ValueMember = "idProvider";
+            // 
+            // providerBindingSource1
+            // 
+            this.providerBindingSource1.DataMember = "provider";
+            this.providerBindingSource1.DataSource = this.productpekarDataSet;
             // 
             // label12
             // 
@@ -450,7 +530,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(10, 193);
+            this.button6.Location = new System.Drawing.Point(10, 185);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(258, 23);
             this.button6.TabIndex = 13;
@@ -468,6 +548,11 @@
             this.comboBox4.Size = new System.Drawing.Size(144, 21);
             this.comboBox4.TabIndex = 14;
             this.comboBox4.ValueMember = "idProduct";
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "products";
+            this.productsBindingSource.DataSource = this.productpekarDataSet;
             // 
             // textBox4
             // 
@@ -540,9 +625,9 @@
             this.groupBox5.Controls.Add(this.comboBox7);
             this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Controls.Add(this.button8);
-            this.groupBox5.Location = new System.Drawing.Point(669, 237);
+            this.groupBox5.Location = new System.Drawing.Point(669, 206);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(278, 126);
+            this.groupBox5.Size = new System.Drawing.Size(278, 94);
             this.groupBox5.TabIndex = 29;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Удалить поставщика:";
@@ -557,6 +642,11 @@
             this.comboBox7.Size = new System.Drawing.Size(144, 21);
             this.comboBox7.TabIndex = 21;
             this.comboBox7.ValueMember = "idProvider";
+            // 
+            // providerBindingSource
+            // 
+            this.providerBindingSource.DataMember = "provider";
+            this.providerBindingSource.DataSource = this.productpekarDataSet;
             // 
             // label24
             // 
@@ -590,7 +680,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.textBox10);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.textBox9);
@@ -604,20 +693,10 @@
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Location = new System.Drawing.Point(669, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(278, 225);
+            this.groupBox4.Size = new System.Drawing.Size(278, 194);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Добавить поставщика:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(6, 197);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 17);
-            this.label19.TabIndex = 28;
             // 
             // textBox10
             // 
@@ -742,47 +821,17 @@
             this.button3.Text = "Выход";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // productpekarDataSet
-            // 
-            this.productpekarDataSet.DataSetName = "productpekarDataSet";
-            this.productpekarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // providerBindingSource
-            // 
-            this.providerBindingSource.DataMember = "provider";
-            this.providerBindingSource.DataSource = this.productpekarDataSet;
-            // 
             // providerTableAdapter
             // 
             this.providerTableAdapter.ClearBeforeFill = true;
-            // 
-            // providerBindingSource1
-            // 
-            this.providerBindingSource1.DataMember = "provider";
-            this.providerBindingSource1.DataSource = this.productpekarDataSet;
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "products";
-            this.productsBindingSource.DataSource = this.productpekarDataSet;
             // 
             // productsTableAdapter
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "employees";
-            this.employeesBindingSource.DataSource = this.productpekarDataSet;
-            // 
             // employeesTableAdapter
             // 
             this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // deliveryBindingSource
-            // 
-            this.deliveryBindingSource.DataMember = "delivery";
-            this.deliveryBindingSource.DataSource = this.productpekarDataSet;
             // 
             // deliveryTableAdapter
             // 
@@ -794,6 +843,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(985, 472);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -808,27 +858,29 @@
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productpekarDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productpekarDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,19 +899,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -893,7 +937,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label24;
@@ -908,6 +951,19 @@
         private productpekarDataSetTableAdapters.employeesTableAdapter employeesTableAdapter;
         private System.Windows.Forms.BindingSource deliveryBindingSource;
         private productpekarDataSetTableAdapters.deliveryTableAdapter deliveryTableAdapter;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label6;
 
     }
 }

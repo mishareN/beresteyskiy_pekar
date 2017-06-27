@@ -81,7 +81,7 @@ namespace beresteyskiy_pekar
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select password from user where username = @username";
+            cmd.CommandText = "SELECT password FROM user WHERE username = @username";
             cmd.Parameters.AddWithValue("@username", textBox1.Text);
             
             MySqlDataReader reader;
