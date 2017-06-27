@@ -397,6 +397,7 @@ namespace beresteyskiy_pekar
                         select_products();
                         textBox2.Clear();
                         textBox3.Clear();
+                        textBox11.Clear();
                         this.productsTableAdapter.Fill(this.productpekarDataSet.products);
                     }
                 }
@@ -405,6 +406,56 @@ namespace beresteyskiy_pekar
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
                 }
             } 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Text.ToString() == "" || textBox1.Text == "" || comboBox1.SelectedValue.ToString() == "" || comboBox2.SelectedValue.ToString() == "")
+            {
+                label20.Text = "Ошибка! Некоторые поля не заполнены!";
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    MySqlCommand check = con.CreateCommand();
+                    check.CommandType = CommandType.Text;
+                    check.CommandText = "SELECT * FROM products where idProduct = @idProduct";
+                    check.Parameters.AddWithValue("@idProduct", comboBox1.SelectedValue.ToString());
+                    MySqlDataReader reader = check.ExecuteReader();
+                    reader.Read();
+                    int count = Convert.ToInt32(reader["productCount"]);
+                    int implCount = Convert.ToInt32(textBox1.Text);
+                    if (count - implCount < 0)
+                    {
+                        label20.Text = "Не хватает товара на складе!";
+                        con.Close();
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        MySqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "UPDATE products SET productCount = productCount - @count WHERE idProduct = @idProduct";
+
+                        cmd.Parameters.AddWithValue("@idProduct", comboBox1.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@count", count);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        select_delivery();
+                        select_products();
+                        textBox1.Clear();
+                        this.employeesTableAdapter.Fill(this.productpekarDataSet.employees);
+                        this.productsTableAdapter.Fill(this.productpekarDataSet.products);
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: \r\n{0}", ex.ToString());
+                }
+            }
         }
     }
 }
