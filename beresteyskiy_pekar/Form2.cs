@@ -88,7 +88,7 @@ namespace beresteyskiy_pekar
                 this.dataGridView1.Columns.Add("productCount", "Количество");
                 this.dataGridView1.Columns["productCount"].Width = 70;
                 this.dataGridView1.Columns.Add("description", "Описание");
-                this.dataGridView1.Columns["description"].Width = 400;
+                this.dataGridView1.Columns["description"].Width = 350;
                 
                 while (reader.Read())
                 {
@@ -125,11 +125,11 @@ namespace beresteyskiy_pekar
                 dataGridView2.Columns.Clear();
                 reader = cmd.ExecuteReader();
                 this.dataGridView2.Columns.Add("idDelivery", "ID");
-                this.dataGridView2.Columns["idDelivery"].Width = 40;
+                this.dataGridView2.Columns["idDelivery"].Width = 35;
                 this.dataGridView2.Columns.Add("organization", "Поставщик");
                 this.dataGridView2.Columns["organization"].Width = 110;
                 this.dataGridView2.Columns.Add("nameOfProduct", "Наименование товара");
-                this.dataGridView2.Columns["nameOfProduct"].Width = 110;
+                this.dataGridView2.Columns["nameOfProduct"].Width = 100;
                 this.dataGridView2.Columns.Add("dateOfDelivery", "Дата поставки");
                 this.dataGridView2.Columns["dateOfDelivery"].Width = 120;
                 this.dataGridView2.Columns.Add("count", "Количество");
@@ -153,14 +153,9 @@ namespace beresteyskiy_pekar
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void implm_product() 
         {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (textBox5.Text == "" || dateTimePicker2.Text.ToString() == "" || textBox4.Text == "" || Convert.ToInt32(textBox5.Text) <= 0 || Convert.ToInt32(textBox4.Text) <= 0)
+            if (textBox1.Text == "" || comboBox1.SelectedValue.ToString() == "" || comboBox2.SelectedValue.ToString() == "")
             {
                 label20.Text = "Ошибка! Некоторые поля не заполнены!";
             }
@@ -171,14 +166,18 @@ namespace beresteyskiy_pekar
                     con.Open();
                     MySqlCommand check = con.CreateCommand();
                     check.CommandType = CommandType.Text;
-                    check.CommandText = "SELECT * FROM delivery where idDelivery = @id";
-                    check.Parameters.AddWithValue("@id", textBox5.Text);
+                    check.CommandText = "SELECT * FROM products where idProduct = @idProduct";
+                    check.Parameters.AddWithValue("@idProduct", comboBox1.SelectedValue.ToString());
                     MySqlDataReader reader = check.ExecuteReader();
                     reader.Read();
-                    if (reader.HasRows)
+                    int count = Convert.ToInt32(reader["productCount"]);
+                    int implCount = Convert.ToInt32(textBox1.Text);
+                    int idProduct = Convert.ToInt32(comboBox1.SelectedValue);
+                    String dateOfImplm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    String employer = comboBox2.SelectedValue.ToString();
+                    if (count - implCount < 0)
                     {
-                        label20.Text = "Поставка с данным ID уже существует!";
-                        con.Close();
+                        label20.Text = "Не хватает товара на складе!";
                         reader.Close();
                     }
                     else
@@ -186,122 +185,129 @@ namespace beresteyskiy_pekar
                         reader.Close();
                         MySqlCommand cmd = con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "INSERT INTO delivery(idDelivery, idProvider, idProduct, dateOfDelivery, count, employee) VALUES(@idDelivery, @idProvider, @idProduct, @dateOfDelivery, @count, @employee)";
-                        cmd.Parameters.AddWithValue("@idDelivery", textBox5.Text);
-                        cmd.Parameters.AddWithValue("@idProvider", comboBox5.SelectedValue.ToString());
-                        cmd.Parameters.AddWithValue("@idProduct", comboBox4.SelectedValue.ToString());
-                        cmd.Parameters.AddWithValue("@dateOfDelivery", dateTimePicker2.Value.Date.ToString("yyyy-MM-dd HH:mm:ss"));
-                        cmd.Parameters.AddWithValue("@count", textBox4.Text);
-                        cmd.Parameters.AddWithValue("@employee", comboBox6.SelectedValue.ToString());
+                        cmd.CommandText = "UPDATE products SET productCount = productCount - @implCount WHERE idProduct = @idProduct";
+                        cmd.Parameters.AddWithValue("@idProduct", idProduct);
+                        cmd.Parameters.AddWithValue("@implCount", implCount);
                         cmd.ExecuteNonQuery();
-                        con.Close();
+                        cmd.CommandText = "INSERT INTO implementation(dateOfImplm, idProduct, count, employer) VALUES(@dateOfImplm, @idProduct, @count, @employer)";
+                        cmd.Parameters.AddWithValue("@dateOfImplm", dateOfImplm);
+                        cmd.Parameters.AddWithValue("@count", implCount);
+                        cmd.Parameters.AddWithValue("@employer", employer);
+                        cmd.ExecuteNonQuery();
                         select_delivery();
-                        textBox4.Clear();
-                        textBox5.Clear();
+                        select_products();
+                        textBox1.Clear();
+                        adapter_update();
                     }
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
                 }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void added_product() 
         {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if (textBox6.Text == "" || textBox7.Text == "" || textBox8.Text == "" || textBox9.Text == "" || textBox10.Text == "" || Convert.ToInt32(textBox6.Text)<=0)
+            if (textBox3.Text == "")
             {
                 label20.Text = "Ошибка! Некоторые поля не заполнены!";
             }
-            else 
+            else
             {
                 try
                 {
-                    con.Open();
-                    MySqlCommand check = con.CreateCommand();
-                    check.CommandType = CommandType.Text;
-                    check.CommandText = "SELECT * FROM provider where idProvider = @id";
-                    check.Parameters.AddWithValue("@id", textBox6.Text);
-                    MySqlDataReader reader = check.ExecuteReader();
-                    reader.Read();
-                    if (reader.HasRows)
-                    {
-                        label20.Text = "Ошибка! Поставщик с данным ID уже существует!";
-                        con.Close();
-                        reader.Close();
-                    }
-                    else
-                    {
-                        reader.Close();
-                        MySqlCommand cmd = con.CreateCommand();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "INSERT INTO provider(idProvider, FIO, phoneNumber, address, organization) VALUES(@idProvider, @FIO, @phoneNumber, @address, @organization)";
-                        cmd.Parameters.AddWithValue("@idProvider", textBox6.Text);
-                        cmd.Parameters.AddWithValue("@FIO", textBox7.Text);
-                        cmd.Parameters.AddWithValue("@phoneNumber", textBox8.Text);
-                        cmd.Parameters.AddWithValue("@address", textBox9.Text);
-                        cmd.Parameters.AddWithValue("@organization", textBox10.Text);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        select_provider();
-                        textBox6.Clear();
-                        textBox7.Clear();
-                        textBox8.Clear();
-                        textBox9.Clear();
-                        textBox10.Clear();
-                        this.providerTableAdapter.Fill(this.productpekarDataSet.provider);
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    Console.WriteLine("Error: \r\n{0}", ex.ToString());
-                }
-            } 
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "productpekarDataSet.delivery". При необходимости она может быть перемещена или удалена.
-            this.deliveryTableAdapter.Fill(this.productpekarDataSet.delivery);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "productpekarDataSet.employees". При необходимости она может быть перемещена или удалена.
-            this.employeesTableAdapter.Fill(this.productpekarDataSet.employees);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "productpekarDataSet.products". При необходимости она может быть перемещена или удалена.
-            this.productsTableAdapter.Fill(this.productpekarDataSet.products);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "productpekarDataSet.provider". При необходимости она может быть перемещена или удалена.
-            this.providerTableAdapter.Fill(this.productpekarDataSet.provider);
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Действительно хотите удалить данного поставщика?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-                    int idProvider = Convert.ToInt32(comboBox7.SelectedValue.ToString());
                     con.Open();
                     MySqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "DELETE FROM provider WHERE idProvider = @idProvider";
-                    cmd.Parameters.AddWithValue("@idProvider", comboBox7.SelectedValue.ToString());
+                    cmd.CommandText = "INSERT INTO products(nameOfProduct, productCount, description) VALUES(@nameOfProduct, 0, @description)";
+                    cmd.Parameters.AddWithValue("@nameOfProduct", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@description", textBox11.Text);
                     cmd.ExecuteNonQuery();
-                    con.Close();
                     select_provider();
-                    this.providerTableAdapter.Fill(this.productpekarDataSet.provider);
+                    select_products();
+                    textBox3.Clear();
+                    textBox11.Clear();
+                    adapter_update();
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
                 }
+                finally
+                {
+                    con.Close();
+                }
             } 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void delete_product() 
+        {
+            if (MessageBox.Show("Действительно хотите удалить данный товар?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    int idProduct = Convert.ToInt32(comboBox8.SelectedValue.ToString());
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM products WHERE idProduct = @idProduct";
+                    cmd.Parameters.AddWithValue("@idProduct", idProduct);
+                    cmd.ExecuteNonQuery();
+                    select_products();
+                    adapter_update();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: \r\n{0}", ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
+            } 
+        }
+
+        public void added_delivery() 
+        {
+            if (dateTimePicker2.Text.ToString() == "" || textBox4.Text == "" || Convert.ToInt32(textBox4.Text) <= 0)
+            {
+                label20.Text = "Ошибка! Некоторые поля не заполнены!";
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO delivery(idProvider, idProduct, dateOfDelivery, count, employee) VALUES(@idProvider, @idProduct, @dateOfDelivery, @count, @employee)";
+                    cmd.Parameters.AddWithValue("@idProvider", comboBox5.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@idProduct", comboBox4.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@dateOfDelivery", dateTimePicker2.Value.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("@count", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@employee", comboBox6.SelectedValue.ToString());
+                    cmd.ExecuteNonQuery();
+                    select_delivery();
+                    textBox4.Clear();
+                    adapter_update();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: \r\n{0}", ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        public void goods_arrival()
         {
             if (MessageBox.Show("Действительно хотите подтвердить поставку товара на склад?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -319,7 +325,6 @@ namespace beresteyskiy_pekar
                     if (!reader.HasRows)
                     {
                         label20.Text = "Ошибка! Пожалуйста, добавьте сначала данный товар в базу";
-                        con.Close();
                         reader.Close();
                     }
                     else
@@ -336,32 +341,30 @@ namespace beresteyskiy_pekar
                         cmd.CommandText = "DELETE FROM delivery WHERE idDelivery = @idDelivery";
                         cmd.Parameters.AddWithValue("@idDelivery", idDelivery);
                         cmd.ExecuteNonQuery();
-                        con.Close();
                         select_provider();
                         select_products();
                         select_delivery();
-                        textBox6.Clear();
                         textBox7.Clear();
                         textBox8.Clear();
                         textBox9.Clear();
                         textBox10.Clear();
-                        this.deliveryTableAdapter.Fill(this.productpekarDataSet.delivery);
+                        adapter_update();
                     }
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
                 }
-                finally 
+                finally
                 {
                     con.Close();
                 }
             } 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        public void added_provider() 
         {
-            if (textBox2.Text == "" || textBox3.Text == "")
+            if (textBox7.Text == "" || textBox8.Text == "" || textBox9.Text == "" || textBox10.Text == "")
             {
                 label20.Text = "Ошибка! Некоторые поля не заполнены!";
             }
@@ -370,92 +373,138 @@ namespace beresteyskiy_pekar
                 try
                 {
                     con.Open();
-                    MySqlCommand check = con.CreateCommand();
-                    check.CommandType = CommandType.Text;
-                    check.CommandText = "SELECT * FROM products where idProduct = @idProduct";
-                    check.Parameters.AddWithValue("@idProduct", textBox2.Text);
-                    MySqlDataReader reader = check.ExecuteReader();
-                    reader.Read();
-                    if (reader.HasRows)
-                    {
-                        label20.Text = "Ошибка! Товар с данным ID уже существует!";
-                        con.Close();
-                        reader.Close();
-                    }
-                    else
-                    {
-                        reader.Close();
-                        MySqlCommand cmd = con.CreateCommand();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "INSERT INTO products(idProduct, nameOfProduct, productCount, description) VALUES(@idProduct, @nameOfProduct, 0, @description)";
-                        cmd.Parameters.AddWithValue("@idProduct", textBox2.Text);
-                        cmd.Parameters.AddWithValue("@nameOfProduct", textBox3.Text);
-                        cmd.Parameters.AddWithValue("@description", textBox11.Text);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        select_provider();
-                        select_products();
-                        textBox2.Clear();
-                        textBox3.Clear();
-                        textBox11.Clear();
-                        this.productsTableAdapter.Fill(this.productpekarDataSet.products);
-                    }
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO provider(FIO, phoneNumber, address, organization) VALUES(@FIO, @phoneNumber, @address, @organization)";
+                    cmd.Parameters.AddWithValue("@FIO", textBox7.Text);
+                    cmd.Parameters.AddWithValue("@phoneNumber", textBox8.Text);
+                    cmd.Parameters.AddWithValue("@address", textBox9.Text);
+                    cmd.Parameters.AddWithValue("@organization", textBox10.Text);
+                    cmd.ExecuteNonQuery();
+                    select_provider();
+                    textBox7.Clear();
+                    textBox8.Clear();
+                    textBox9.Clear();
+                    textBox10.Clear();
+                    adapter_update();
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
                 }
             } 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void delete_provider() 
         {
-            if (dateTimePicker1.Text.ToString() == "" || textBox1.Text == "" || comboBox1.SelectedValue.ToString() == "" || comboBox2.SelectedValue.ToString() == "")
-            {
-                label20.Text = "Ошибка! Некоторые поля не заполнены!";
-            }
-            else
+            if (MessageBox.Show("Действительно хотите удалить данного поставщика?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
+                    int idProvider = Convert.ToInt32(comboBox7.SelectedValue.ToString());
                     con.Open();
-                    MySqlCommand check = con.CreateCommand();
-                    check.CommandType = CommandType.Text;
-                    check.CommandText = "SELECT * FROM products where idProduct = @idProduct";
-                    check.Parameters.AddWithValue("@idProduct", comboBox1.SelectedValue.ToString());
-                    MySqlDataReader reader = check.ExecuteReader();
-                    reader.Read();
-                    int count = Convert.ToInt32(reader["productCount"]);
-                    int implCount = Convert.ToInt32(textBox1.Text);
-                    if (count - implCount < 0)
-                    {
-                        label20.Text = "Не хватает товара на складе!";
-                        con.Close();
-                        reader.Close();
-                    }
-                    else
-                    {
-                        reader.Close();
-                        MySqlCommand cmd = con.CreateCommand();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "UPDATE products SET productCount = productCount - @count WHERE idProduct = @idProduct";
-
-                        cmd.Parameters.AddWithValue("@idProduct", comboBox1.SelectedValue.ToString());
-                        cmd.Parameters.AddWithValue("@count", count);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        select_delivery();
-                        select_products();
-                        textBox1.Clear();
-                        this.employeesTableAdapter.Fill(this.productpekarDataSet.employees);
-                        this.productsTableAdapter.Fill(this.productpekarDataSet.products);
-                    }
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM provider WHERE idProvider = @idProvider";
+                    cmd.Parameters.AddWithValue("@idProvider", comboBox7.SelectedValue.ToString());
+                    cmd.ExecuteNonQuery();
+                    select_provider();
+                    adapter_update();
                 }
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: \r\n{0}", ex.ToString());
                 }
-            }
+                finally
+                {
+                    con.Close();
+                }
+            } 
+        }
+
+        public void adapter_update()
+        {
+            this.deliveryTableAdapter.Fill(this.productpekarDataSet.delivery);
+            this.employeesTableAdapter.Fill(this.productpekarDataSet.employees);
+            this.productsTableAdapter.Fill(this.productpekarDataSet.products);
+            this.providerTableAdapter.Fill(this.productpekarDataSet.provider);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            added_delivery();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            added_provider();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            adapter_update();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            delete_provider();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            goods_arrival();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            added_product();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            implm_product();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            delete_product();
+        }
+
+        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 fm = new Form1();
+            fm.Show();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 fm3 = new Form3();
+            fm3.Show();
         }
     }
 }
